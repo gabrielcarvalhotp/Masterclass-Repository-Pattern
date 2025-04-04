@@ -13,15 +13,17 @@ public class ProductRepository(AppDbContext context) : IProductRepository
         return product;
     }
 
-    public async Task UpdateAsync(Product product, CancellationToken cancellationToken = default)
+    public async Task<Product> UpdateAsync(Product product, CancellationToken cancellationToken = default)
     {
         context.Products.Update(product);
         await context.SaveChangesAsync();
+        return product;
     }
 
     public async Task DeleteAsync(Product product, CancellationToken cancellationToken = default)
     {
-        context.Products.Remove(product);
+        product.Active = false;
+        context.Update(product);       
         await context.SaveChangesAsync();
     }
 
@@ -32,13 +34,14 @@ public class ProductRepository(AppDbContext context) : IProductRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
-    public async Task<List<Product>> GetByAllAsync(int skip = 0, int take = 25, CancellationToken cancellationToken = default)
+    public async Task<List<Product>> GetAllAsync(int skip = 0, int take = 25, CancellationToken cancellationToken = default)
     {
         return await context
             .Products
             .AsNoTracking()
             .Skip(skip)
             .Take(take)
+            .Where(x => x.Active)
             .ToListAsync(cancellationToken);
     }
 }
