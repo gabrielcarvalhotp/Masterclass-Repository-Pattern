@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using RepositoryStore.Models;
 
 namespace RepositoryStore.Data;

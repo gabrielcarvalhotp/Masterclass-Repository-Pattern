@@ -15,6 +15,6 @@ public class ProductMap: IEntityTypeConfiguration<Product>
         builder.Property (x=> x.Description)
             .IsRequired (true)
             .HasMaxLength(160)
-            .HasColumnType("varchar(60)");
+            .HasColumnType("varchar");
     }
 }
