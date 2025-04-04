@@ -1,0 +1,65 @@
+# Visual Studio
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.app
+*.pdb
+*.ilk
+*.log
+*.cache
+*.o
+*.so
+*.a
+*.lib
+*.ncb
+*.sdf
+*.sqlite
+*.sqlite3
+*.ipch
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+# The packages folder can be restored via NuGet restore
+**/packages/
+
+# Entity Framework
+*.mdf
+*.ldf
+
+# Rider
+.idea/
+
+# ASP.NET specific
+appsettings.*.json
+
+# dotnet tools
+.dotnet_tools/
+
+# JetBrains Rider
+.idea/
+
+# Misc
+*.log
+*.tlog
+*.csv
+*.testresults/
+
+# Local database
+*.db
+*.db-shm
+*.db-wal
