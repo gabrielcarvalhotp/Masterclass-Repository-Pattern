@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RepositoryStore.Data;
+using RepositoryStore.Repositories;
+using RepositoryStore.Repositories.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 {
     x.UseMySql(connectionString, serverVersion);
 });
+
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
